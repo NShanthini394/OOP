@@ -1,22 +1,18 @@
-
 package testGame;
 
 import java.util.Scanner;
 
 public class Player {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to the Survival Game!");
         
-        System.out.print("Enter your name: ");
+        System.out.print("What is your name? ");
         String name = scanner.nextLine();
-    
-        // Invoked playGame Method
+        
+        System.out.println("Good luck, " + name + "!");
+
         Scenario scenario = new Scenario();
         scenario.playGame();
-        
-        //Invoked displayHealth and isAlive method
-        Game game = new Game();
-        game.displayHealth();
-        game.isAlive();
-  }
+    }
 }

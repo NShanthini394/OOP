@@ -1,15 +1,20 @@
 package testGame;
 
 public class Game {
-    protected int health;
+    private int health;
 
     public Game() {
-        this.health = 100;
+        this.health = 50;
     }
 
     public void updateHealth(int change) {
         health += change;
         if (health < 0) health = 0;
+        System.out.println("Updated Health: " + health);
+    }
+
+    public int getHealth() {
+        return health;
     }
 
     public void displayHealth() {
