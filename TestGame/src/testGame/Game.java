@@ -10,7 +10,6 @@ public class Game {
     public void updateHealth(int change) {
         health += change;
         if (health < 0) health = 0;
-        System.out.println("Updated Health: " + health);
     }
 
     public int getHealth() {
