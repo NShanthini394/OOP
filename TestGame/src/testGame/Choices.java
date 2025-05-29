@@ -19,14 +19,8 @@ public class Choices {
         return choice;
     }
 
-    public void riskyChoice(int damage) {
-        System.out.println("\nThat choice had serious consequences!");
-        game.updateHealth(damage);
-    }
-
-    public void goodChoice(int heal) {
-        System.out.println("\nYou make the right choice!");
-        game.updateHealth(heal);
+    public void applyChoice(ChoiceType choiceType) {
+        choiceType.apply(game);
     }
 
     public boolean checkStatus() {
