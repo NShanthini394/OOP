@@ -2,12 +2,23 @@ package testGame;
 
 public class Scenario extends Game {
     private final Choices choice;
+    private String name;
 
-    public Scenario() {
+    public Scenario(String name) {
         super();
         this.choice = new Choices(this);
+        setName(name);
+    }
+    
+    public void setName(String name){
+        this.name  = name;
+    }
+    
+    public String getName(){
+        return name;
     }
 
+    @Override
     public void playGame() {
         displayHealth();
         // Level 1
@@ -84,8 +95,10 @@ public class Scenario extends Game {
 
         displayHealth();
         if (!choice.checkStatus()) return;
-
+        
+        getGrade();
+        
         // Winning
-        System.out.println("Congratulations! You survived the wilderness!");
+        System.out.println("Congratulations, " + name + "! You survived the wilderness!");
     }
 }

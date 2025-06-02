@@ -10,6 +10,7 @@ public class GoodChoice implements ChoiceType {
     @Override
     public void apply(Game game) {
         System.out.println("\nYou make the right choice!");
+        System.out.println("Health: +" + healthBoost);
         game.updateHealth(healthBoost);
     }
 }

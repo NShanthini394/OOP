@@ -10,6 +10,7 @@ public class RiskyChoice implements ChoiceType {
     @Override
     public void apply(Game game) {
         System.out.println("\nThat choice had serious consequences!");
+        System.out.println("Health: " + healthPenalty);
         game.updateHealth(healthPenalty);
     }
 }

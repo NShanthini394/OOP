@@ -10,9 +10,9 @@ public class Player {
         System.out.print("What is your name: ");
         String name = scanner.nextLine();
         
-        System.out.println("Good luck, " + name + "!");
+        System.out.println("\nGood luck, " + name + "!");
 
-        Scenario scenario = new Scenario();
+        Scenario scenario = new Scenario(name);
         scenario.playGame();
     }
 }

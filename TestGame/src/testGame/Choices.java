@@ -25,6 +25,8 @@ public class Choices {
 
     public boolean checkStatus() {
         if (!game.isAlive()) {
+            System.out.println("\nYou did not make it. Time to reflect and retry!");
+            System.out.println("Your grade: F");
             System.out.println("\nYou have lost all your health. Game Over.");
             return false;
         }
