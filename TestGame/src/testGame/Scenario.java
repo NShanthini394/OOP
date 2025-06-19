@@ -2,24 +2,17 @@ package testGame;
 
 public class Scenario extends Game {
     private final Choices choice;
-    private String name;
+    private final String playerName;
 
-    public Scenario(String name) {
+    public Scenario(String playerName) {
         super();
         this.choice = new Choices(this);
-        setName(name);
+        this.playerName = playerName;
     }
     
-    public void setName(String name){
-        this.name  = name;
-    }
-    
-    public String getName(){
-        return name;
-    }
-
     @Override
     public void playGame() {
+        System.out.println("Player: " + playerName);
         displayHealth();
         // Level 1
         System.out.println("Level 1: You wake up in a dense jungle. It's raining heavily.");
@@ -99,6 +92,6 @@ public class Scenario extends Game {
         getGrade();
         
         // Winning
-        System.out.println("Congratulations, " + name + "! You survived the wilderness!");
+        System.out.println("Congratulations, " + playerName + "! You survived the wilderness!");
     }
 }

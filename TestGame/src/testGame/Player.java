@@ -1,18 +1,42 @@
 package testGame;
 
-import java.util.Scanner;
+import javax.swing.*;
+import java.util.InputMismatchException;
 
 public class Player {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome to the Survival Game!");
-        
-        System.out.print("What is your name: ");
-        String name = scanner.nextLine();
-        
-        System.out.println("\nGood luck, " + name + "!");
+        String name = "";
+        boolean valid = false;
+
+        while (!valid) {
+            try {
+                name = JOptionPane.showInputDialog(null, "Enter your name:", "Survival Game", JOptionPane.PLAIN_MESSAGE);
+
+                if (name == null) {
+                    JOptionPane.showMessageDialog(null, "Game exited. Goodbye!");
+                    return;
+                }
+
+                name = name.trim();
+
+                if (name.isEmpty()) {
+                    throw new InputMismatchException("Name cannot be empty.");
+                }
+
+                if (!name.matches("[a-zA-Z ]+")) {
+                    throw new InputMismatchException("Name must contain only letters.");
+                }
+
+                valid = true;
+
+            } catch (InputMismatchException e) {
+                JOptionPane.showMessageDialog(null, "Invalid input: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+
+        JOptionPane.showMessageDialog(null, "Good luck, " + name + "! \nThe game will now start.", "Start", JOptionPane.INFORMATION_MESSAGE);
 
         Scenario scenario = new Scenario(name);
-        scenario.playGame();
+        scenario.playGame(); // This continues in console
     }
 }
