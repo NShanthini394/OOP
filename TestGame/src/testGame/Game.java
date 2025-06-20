@@ -1,6 +1,6 @@
 package testGame;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 public abstract class Game {
 
@@ -25,10 +25,16 @@ public abstract class Game {
     }
 
     public void displayHealth() {
-        JOptionPane.showMessageDialog(null, "------ PLAYER HEALTH ------\n"
-                + "Health: " + health
-                + "\n---------------------------------------", "Health", JOptionPane.PLAIN_MESSAGE);
-    }
+    String message = "<html><div style='width: 200px; text-align: center;'>"
+                   + "------ PLAYER HEALTH ------<br>"
+                   + "Health: " + health + "<br>"
+                   + "---------------------------------------"
+                   + "</div></html>";
+
+    JLabel label = new JLabel(message);
+    JOptionPane.showMessageDialog(null, label, "Health", JOptionPane.PLAIN_MESSAGE);
+}
+
 
     public boolean isAlive() {
         return health > 0;
