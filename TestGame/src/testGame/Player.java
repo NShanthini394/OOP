@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.util.InputMismatchException;
 
 public class Player {
+
     public static void main(String[] args) {
         String name = "";
         boolean valid = false;
@@ -37,6 +38,6 @@ public class Player {
         JOptionPane.showMessageDialog(null, "Good luck, " + name + "! \nThe game will now start.", "Start", JOptionPane.INFORMATION_MESSAGE);
 
         Scenario scenario = new Scenario(name);
-        scenario.playGame(); // This continues in console
+        scenario.playGame();
     }
 }

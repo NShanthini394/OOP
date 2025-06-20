@@ -25,16 +25,15 @@ public abstract class Game {
     }
 
     public void displayHealth() {
-    String message = "<html><div style='width: 200px; text-align: center;'>"
-                   + "------ PLAYER HEALTH ------<br>"
-                   + "Health: " + health + "<br>"
-                   + "---------------------------------------"
-                   + "</div></html>";
+        String message = "<html><div style='width: 200px; text-align: center;'>"
+                + "------ PLAYER HEALTH ------<br>"
+                + "Health: " + health + "<br>"
+                + "---------------------------------------"
+                + "</div></html>";
 
-    JLabel label = new JLabel(message);
-    JOptionPane.showMessageDialog(null, label, "Health", JOptionPane.PLAIN_MESSAGE);
-}
-
+        JLabel label = new JLabel(message);
+        JOptionPane.showMessageDialog(null, label, "Health", JOptionPane.PLAIN_MESSAGE);
+    }
 
     public boolean isAlive() {
         return health > 0;
