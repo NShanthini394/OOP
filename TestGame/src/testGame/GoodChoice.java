@@ -1,6 +1,9 @@
 package testGame;
 
+import javax.swing.JOptionPane;
+
 public class GoodChoice implements ChoiceType {
+
     private final int healthBoost;
 
     public GoodChoice(int healthBoost) {
@@ -9,8 +12,8 @@ public class GoodChoice implements ChoiceType {
 
     @Override
     public void apply(Game game) {
-        System.out.println("\nYou make the right choice!");
-        System.out.println("Health: +" + healthBoost);
+        JOptionPane.showMessageDialog(null, "You make the right choice!\n"
+                + "Health: " + healthBoost, "Risky Choice!", JOptionPane.INFORMATION_MESSAGE);
         game.updateHealth(healthBoost);
     }
 }

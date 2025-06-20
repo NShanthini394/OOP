@@ -1,7 +1,13 @@
 package testGame;
 
+import javax.swing.JOptionPane;
+
 public abstract class Game {
+
     private int health;
+    private String title = "Survival Results";
+    private String grade;
+    private String message;
 
     public Game() {
         this.health = 50;
@@ -9,7 +15,9 @@ public abstract class Game {
 
     public void updateHealth(int change) {
         health += change;
-        if (health < 0) health = 0;
+        if (health < 0) {
+            health = 0;
+        }
     }
 
     public int getHealth() {
@@ -17,51 +25,56 @@ public abstract class Game {
     }
 
     public void displayHealth() {
-        System.out.println("\n------ PLAYER HEALTH ------");
-        System.out.println("Health: " + health);
-        System.out.println("---------------------------");
+        JOptionPane.showMessageDialog(null, "------ PLAYER HEALTH ------\n"
+                + "Health: " + health
+                + "\n---------------------------------------", "Health", JOptionPane.PLAIN_MESSAGE);
     }
 
     public boolean isAlive() {
         return health > 0;
     }
-    
-    public void getGrade(){
-        if(getHealth() > 90){
-            System.out.println("\nOutstanding! You are a true survivor.");
-            System.out.println("Your grade: A+");
-        } else if (getHealth() > 80){
-            System.out.println("\nNot bad, but you took some risks.");
-            System.out.println("\nYour grade: A");
-        }else if (getHealth() > 70){
-            System.out.println("\nExcellent job! Almost perfect survival.");
-            System.out.println("Your grade: A-");
-        }else if (getHealth() > 60){
-            System.out.println("\nGreat work! You made smart choices.");
-            System.out.println("Your grade: B+");
-        }else if (getHealth() > 50){
-            System.out.println("\nYou did well. A few rough patches, but solid survival.");
-            System.out.println("Your grade: B");
-        }else if (getHealth() > 40){
-            System.out.println("\nGood effort! You stayed strong.");
-            System.out.println("Your grade: C+");
-        }else if (getHealth() > 30){
-            System.out.println("\nDecent performance. Try to be more careful next time.");
-            System.out.println("Your grade: C");
-        }else if (getHealth() > 20){
-            System.out.println("\nNot bad, but you took some risks.");
-            System.out.println("Your grade: D+");
-        }else if (getHealth() > 10){
-            System.out.println("\nYou are more capable than you think. Do not give up!");
-            System.out.println("Your grade: D");
-        }else if (getHealth() > 0){
-            System.out.println("\nYou can do better than this! Survived by a thread.");
-            System.out.println("Your grade: E");
+
+    public void getGrade() {
+        if (health > 90) {
+            grade = "A+";
+            message = "Outstanding! You are a true survivor.";
+        } else if (health > 80) {
+            grade = "A";
+            message = "Excellent job! You handled challenges well.";
+        } else if (health > 70) {
+            grade = "A-";
+            message = "Great survival skills! Just a few missteps.";
+        } else if (health > 60) {
+            grade = "B+";
+            message = "Smart choices kept you going strong.";
+        } else if (health > 50) {
+            grade = "B";
+            message = "Solid effort! A few rough patches, but you made it.";
+        } else if (health > 40) {
+            grade = "C+";
+            message = "Good effort! You stayed strong despite difficulties.";
+        } else if (health > 30) {
+            grade = "C";
+            message = "Decent survival, but there's room for better decisions.";
+        } else if (health > 20) {
+            grade = "D+";
+            message = "Not bad, but try to be more cautious next time.";
+        } else if (health > 10) {
+            grade = "D";
+            message = "You’re more capable than you think. Don’t give up!";
+        } else if (health > 0) {
+            grade = "E";
+            message = "Barely survived. Reflect and prepare better next time.";
         } else {
-            System.out.println("\nYou didn’t make it. Time to reflect and retry!");
-            System.out.println("Your grade: F");
+            grade = "F";
+            message = "You didn’t make it. But failure is the first step to success.";
         }
+
+        JOptionPane.showMessageDialog(null,
+                message + "\nYour grade: " + grade,
+                title,
+                JOptionPane.INFORMATION_MESSAGE);
     }
-    
+
     public abstract void playGame();
 }
